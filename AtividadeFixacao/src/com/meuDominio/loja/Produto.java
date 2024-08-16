@@ -3,13 +3,15 @@ package com.meuDominio.loja;
 public class Produto {
 	private String nome;
 	private double preco;
-	private int quantidade = 0;
+	private int quantidade;
 	
-	public void Produto() {
+	
+	public Produto() {
 	}
-	public void Produto(String nome, double preco) {
+	public Produto(String nome, double preco, int quantidade) {
 		this.nome = nome;
 		this.preco = preco;
+		this.quantidade = quantidade;
 	}
 	
 	public void setstring(String nome) {
@@ -24,6 +26,12 @@ public class Produto {
 	}
 	public double getPreco() {
 		return preco;
+	}
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
+	}
+	public int getQuantidade() {
+		return quantidade;
 	}
 	
 	public void exibirInformacoes() {
@@ -43,5 +51,12 @@ public class Produto {
 	
 	public void adicionarEstoque(int quantidadeAdicional) {
 		quantidade += quantidadeAdicional;
+		System.out.println("Qunatidade adicionada ao estoque. Novo total: " + quantidade);
+	}
+	
+	public void aplicarDesconto(double percentualDesconto) {
+		double desconto = preco * (percentualDesconto / 100);
+		preco -= desconto;
+		System.out.println("Desconto aplicado! Novo preço: R$" + preco);
 	}
 }
